@@ -1,0 +1,16 @@
+{
+  "name":  "Example Team",
+  "spots": 5,
+  "members": [
+    {
+      "name": "John Doe",
+      "email": "John@email.com",
+      "status": "Active"
+    },
+    {
+      "name": "John Doe",
+      "email": "John@email.com",
+      "status": "Active"
+    }
+  ]
+}
