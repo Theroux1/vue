@@ -7,25 +7,28 @@ defineProps({
 </script>
 
 <template>
-  <div class="modal-mask" v-if="show">
-    <div class="modal-container">
+  <Transition
+      enter-from-class="opacity-0 scale-125"
+      enter-to-class="opacity-100 scale-100"
+      enter-active-class="transition duration-300"
+      leave-active-class="transition duration-200"
+      leave-from-class="opacity-100 scale-100"
+      leave-to-class="opacity-0 scale-125"
+  >
+    <div v-if="show" class="modal-mask">
+      <div class="modal-container">
+        <div>
+          <slot>default body</slot>
+        </div>
 
-<!--      <header>-->
-<!--        <slot name="header">-->
-<!--          default header-->
-<!--        </slot>-->
-<!--      </header>-->
-      <div>
-        <slot>default body</slot>
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button @click="$emit('close')">Close</button>
+          </slot>
+        </footer>
       </div>
-      <footer class="border-t-2 pt-2">
-        <slot name="footer">
-          default footer
-        </slot>
-        <button class="block bg-green-400 rounded p-3 text-white" @click="$emit('close')">Close</button>
-      </footer>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style>
